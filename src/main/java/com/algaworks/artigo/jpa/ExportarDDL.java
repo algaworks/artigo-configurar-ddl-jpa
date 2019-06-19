@@ -11,8 +11,8 @@ public class ExportarDDL {
 		Map<String, String> properties = new HashMap<>();
 
 		properties.put("javax.persistence.schema-generation.scripts.action", "drop-and-create");
-		properties.put("javax.persistence.schema-generation.scripts.create-target", "/tmp/ddl/script-criacao.sql");
-		properties.put("javax.persistence.schema-generation.scripts.drop-target", "/tmp/ddl/script-remocao.sql");
+		properties.put("javax.persistence.schema-generation.scripts.create-target", "/tmp/ddl/script-criacao-exportado.sql");
+		properties.put("javax.persistence.schema-generation.scripts.drop-target", "/tmp/ddl/script-remocao-exportado.sql");
 		
 		properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
 		properties.put("hibernate.format_sql", "true");
