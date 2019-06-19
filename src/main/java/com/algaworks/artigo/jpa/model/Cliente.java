@@ -38,15 +38,15 @@ public class Cliente {
 	
 	@Column(name = "numero", length = 20, nullable = false)
 	@ElementCollection
-	@CollectionTable(name = "telefone", schema = "sistemaerp", 
-						joinColumns = { @JoinColumn(name = "cliente_id") },
-						foreignKey = @ForeignKey(name = "telefone_cliente_fk"))
+	@CollectionTable(name = "cliente_telefone", schema = "sistemaerp", 
+						joinColumns = { @JoinColumn(name = "cliente_id", 
+													foreignKey = @ForeignKey(name = "clientetelefone_cliente_fk")) })
 	private Collection<String> telefones;
 	
 	@ElementCollection
-	@CollectionTable(name = "endereco", schema = "sistemaerp", 
-						joinColumns = { @JoinColumn(name = "cliente_id") },
-						foreignKey = @ForeignKey(name = "endereco_cliente_fk"))
+	@CollectionTable(name = "cliente_endereco", schema = "sistemaerp", 
+						joinColumns = { @JoinColumn(name = "cliente_id", 
+													foreignKey = @ForeignKey(name = "clienteendereco_cliente_fk")) })
 	private Collection<Endereco> enderecos;
 
 	public Integer getId() {
