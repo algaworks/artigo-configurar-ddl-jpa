@@ -13,8 +13,8 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "categoria", schema = "sistemaerp", 
-		uniqueConstraints = @UniqueConstraint(name = "categoria_empresaid_nome_unique", 
-												columnNames = { "empresa_id", "nome" }))
+		uniqueConstraints = { @UniqueConstraint(name = "categoria_empresaid_nome_unique", 
+												columnNames = { "empresa_id", "nome" }) })
 public class Categoria {
 	
 	@Id

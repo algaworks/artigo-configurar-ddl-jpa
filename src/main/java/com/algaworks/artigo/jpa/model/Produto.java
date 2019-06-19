@@ -1,5 +1,6 @@
 package com.algaworks.artigo.jpa.model;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 
 import javax.persistence.Column;
@@ -18,9 +19,9 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "produto", schema = "sistemaerp", 
-		uniqueConstraints = @UniqueConstraint(name = "produto_empresaid_nome_unique", 
-												columnNames = { "empresa_id", "nome" }),
-		indexes = @Index(name = "produto_nome_idx", columnList = "empresa_id, nome"))
+		uniqueConstraints = { @UniqueConstraint(name = "produto_empresaid_nome_unique", 
+												columnNames = { "empresa_id", "nome" }) },
+		indexes = { @Index(name = "produto_nome_idx", columnList = "empresa_id, nome") })
 public class Produto {
 	
 	@Id
@@ -42,6 +43,9 @@ public class Produto {
 				inverseJoinColumns = { @JoinColumn(name = "categoria_id", 
 					foreignKey = @ForeignKey(name = "produtocategoria_categoria_fk")) })	
 	private Collection<Categoria> categorias;
+	
+	@Column(precision = 10, scale = 2)
+	private BigDecimal preco;
 
 	public Integer getId() {
 		return id;
@@ -73,6 +77,14 @@ public class Produto {
 	
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
+	}
+	
+	public BigDecimal getPreco() {
+		return preco;
+	}
+	
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
 	}
 
 	@Override

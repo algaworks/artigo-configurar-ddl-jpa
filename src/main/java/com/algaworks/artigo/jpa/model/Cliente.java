@@ -17,8 +17,8 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "cliente", schema = "sistemaerp", 
-		uniqueConstraints = @UniqueConstraint(name = "cliente_empresaid_cpf_unique", 
-												columnNames = { "empresa_id", "cpf" }))
+		uniqueConstraints = { @UniqueConstraint(name = "cliente_empresaid_cpf_unique", 
+												columnNames = { "empresa_id", "cpf" }) })
 public class Cliente {
 	
 	@Id

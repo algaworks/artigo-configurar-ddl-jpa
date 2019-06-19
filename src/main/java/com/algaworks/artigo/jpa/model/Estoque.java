@@ -1,5 +1,6 @@
 package com.algaworks.artigo.jpa.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
@@ -27,6 +28,9 @@ public class Estoque {
 	@JoinColumn(name = "produto_id", nullable = false, unique = true,
 					foreignKey = @ForeignKey(name = "estoque_produto_fk"))
 	private Produto produto;
+	
+	@Column(columnDefinition = "integer(10)")
+	private Integer quantidade;
 
 	public Integer getId() {
 		return id;
@@ -36,6 +40,14 @@ public class Estoque {
 		this.id = id;
 	}
 
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+	
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
+	}
+	
 	public Empresa getEmpresa() {
 		return empresa;
 	}
